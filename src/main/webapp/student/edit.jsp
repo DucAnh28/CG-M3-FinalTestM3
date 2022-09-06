@@ -58,6 +58,6 @@
         <span>${mess}</span>
     </c:if>
 </p>
-<h3><a href="/concat">Back To Customers List</a></h3>
+<h3><a href="/concat">Back To Student List</a></h3>
 </body>
 </html>

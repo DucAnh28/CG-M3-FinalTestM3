@@ -77,8 +77,18 @@ public class StudentServlet extends HttpServlet {
         }
     }
 
-    private void editStudent(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        int id = Integer.parseInt(req.getParameter("id"));
+    private void editStudent(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int id = Integer.parseInt(request.getParameter("id"));
+        String name = request.getParameter("name");
+        Date birth = Date.valueOf(request.getParameter("birth"));
+        String address = request.getParameter("address");
+        String email = request.getParameter("email");
+        String phone = request.getParameter("phone");
+        int class_id = Integer.parseInt(request.getParameter("class_id"));
+        studentDAO.edit(id,new Student(name,birth,address,email,phone,class_id));
+        request.setAttribute("mess", "Success !");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("student/edit.jsp");
+        dispatcher.forward(request, response);
     }
 
     private void deleteStudent(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {

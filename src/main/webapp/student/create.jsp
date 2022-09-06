@@ -40,7 +40,7 @@
                 <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
                     <div class="card-body p-4 p-md-5">
                         <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Create Form</h3>
-                        <form method="post" action="/manager?action=create">
+                        <form method="post" action="/concat?action=create">
 
                             <div class="row">
                                 <div class="col-md-6 mb-4">
@@ -117,7 +117,7 @@
                                 <span>${mess}</span>
                             </c:if>
                             </p>
-                            <a href="/manager">Back to list</a>
+                            <a href="/concat">Back to list</a>
                         </form>
                     </div>
                 </div>
