@@ -67,6 +67,23 @@ public class StudentDAO implements IStudentDAO{
     @Override
     public void edit(int id, Student student) {
         try {
+            PreparedStatement statement = connection.prepareStatement(EDIT_STUDENT);
+            statement.setString(1,student.getName());
+            statement.setDate(2,student.getBirth());
+            statement.setString(3,student.getAddress());
+            statement.setString(4,student.getPhone());
+            statement.setString(5,student.getEmail());
+            statement.setInt(6,student.getClass_id());
+            statement.setInt(7,id);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public void delete(int id) {
+        try {
             PreparedStatement statement = connection.prepareStatement(DELETE_STUDENT);
             statement.setInt(1, id);
             statement.executeUpdate();
@@ -77,11 +94,6 @@ public class StudentDAO implements IStudentDAO{
     }
 
     @Override
-    public void delete(int id) {
-
-    }
-
-    @Override
     public Student findByID(int id) {
         Student student = null;
         try{
@@ -89,14 +101,14 @@ public class StudentDAO implements IStudentDAO{
             statement.setInt(1,id);
             ResultSet rs = statement.executeQuery();
             while (rs.next()){
-                int id = rs.getInt("id");
+                int id1 = rs.getInt("id");
                 String name = rs.getString("name");
                 Date birth = rs.getDate("birth");
                 String address = rs.getString("address");
                 String phone = rs.getString("phone");
                 String email = rs.getString("email");
                 int class_id = rs.getInt("class_id");
-                student = new Student(id,name,birth,address,phone,email,class_id);
+                student = new Student(id1,name,birth,address,phone,email,class_id);
             }
         } catch (SQLException e) {
             e.printStackTrace();

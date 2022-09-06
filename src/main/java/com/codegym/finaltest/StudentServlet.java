@@ -66,7 +66,7 @@ public class StudentServlet extends HttpServlet {
                 createStudent(req, resp);
                 break;
             case "edit":
-
+                editStudent(req,resp);
                 break;
             case "delete":
                 deleteStudent(req, resp);
@@ -76,6 +76,11 @@ public class StudentServlet extends HttpServlet {
                 break;
         }
     }
+
+    private void editStudent(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int id = Integer.parseInt(req.getParameter("id"));
+    }
+
     private void deleteStudent(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         studentDAO.delete(id);

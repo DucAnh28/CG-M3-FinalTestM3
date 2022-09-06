@@ -14,48 +14,43 @@
 <%
 
 %>
-<form method="post" action="/admin?action=editCustomer&id=${thisStu.id}">
+<form method="post" action="/concat?action=edit&id=${thisStu.id}">
     <div class="form-row">
         <div class="form-group col-md-6">
             <label for="inputEmail4">Name</label>
             <input type="text" class="form-control" id="inputEmail4" value="${thisStu.name}" name="name">
         </div>
         <div class="form-group col-md-6">
-            <label for="inputAge">Age</label>
-            <input type="text" class="form-control" id="inputAge" value="${thisStu.age}" name="age">
+            <label for="inputAge">Birth</label>
+            <input type="date" class="form-control" id="inputAge" value="${thisStu.birth}" name="birth">
         </div>
     </div>
     <div class="form-group">
         <label for="inputAddress">Address</label>
-        <input type="text" class="form-control" id="inputAddress" value="${thisCus.address}" name="address">
+        <input type="text" class="form-control" id="inputAddress" value="${thisStu.address}" name="address">
     </div>
-    <div class="form-group">
+    <div class="form-row">
         <label for="inputAddress2">Phone</label>
-        <input type="text" class="form-control" id="inputAddress2" value="${thisCus.phone}" name="phone">
+        <input type="text" class="form-control" id="inputAddress2" value="${thisStu.phone}" name="phone">
     </div>
     <div class="form-row">
         <div class="form-group col-md-6">
             <label for="inputCity">Email</label>
-            <input type="email" class="form-control" id="inputCity" value="${thisCus.email}" name="email">
+            <input type="email" class="form-control" id="inputCity" value="${thisStu.email}" name="email">
         </div>
-        <div class="form-group col-md-2">
-            <label for="inputZip">Account</label>
-            <input type="text" class="form-control" id="inputZip" value="${thisCus.account}" name="account">
-        </div>
-        <div class="form-group col-md-2">
-            <label for="inputZip">Password</label>
-            <input type="text" class="form-control" value="${thisCus.password}" name="password">
-        </div>
-        <div class="form-group col-md-2">
-            <label for="inputZip">Gender</label>
-            <p class="form-control" value="${thisCus.gender}" name="gender">${thisCus.gender} (Can't Change)</p>
-        </div>
-        <div class="form-group col-md-2">
-            <label for="inputZip">Date Join</label>
-            <p  class="form-control" value="${thisCus.startDate}" name="date">${thisCus.startDate} (Can't Change)</p>
-        </div>
-
     </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="class">Class</label>
+            <select name="class_id" id="class">
+                <option value="1">English Class</option>
+                <option value="2">Germany Class</option>
+                <option value="3">Japanese Class</option>
+                <option value="4">Korean Class</option>
+            </select>
+        </div>
+    </div>
+
     <button type="submit" class="btn btn-primary">Confirm</button>
 </form>
 <p>
@@ -63,6 +58,6 @@
         <span>${mess}</span>
     </c:if>
 </p>
-<h3><a href="/admin?action=showAllCus">Back To Customers List</a></h3>
+<h3><a href="/concat">Back To Customers List</a></h3>
 </body>
 </html>
